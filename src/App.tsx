@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import MyNavbar from './MyNavbar';
+import { Routes, Route } from "react-router-dom";
+import Home from './view/Home';
+import CategoryList from './view/CategoryList';
+import WordList from './view/WordList';
+import LogIn from './view/LogIn';
+import Play from './view/Play';
+import Word from './view/Word';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MyNavbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/play' element={<Play />} />
+        <Route path='/categories' element={<CategoryList />} />
+        <Route path='/words' element={<WordList />} />
+        <Route path='/login' element={<LogIn />} />
+        <Route path='/word' element={<Word />} />
+      </Routes>
     </div>
   );
 }
